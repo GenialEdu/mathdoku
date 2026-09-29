@@ -12,6 +12,7 @@ const isPWA = process.env.PWA === 'true';
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/mathdoku/',  // GitHub Pages subpath
   plugins: [
     react(), 
     tailwindcss(),
