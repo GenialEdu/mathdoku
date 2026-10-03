@@ -1,8 +1,11 @@
-const CACHE_NAME = 'mathdoku-v1';
+const CACHE_NAME = 'mathdoku-v2';
+const BASE_PATH = '/mathdoku';
 const STATIC_ASSETS = [
-  '/',
-  '/index.html',
-  '/manifest.json'
+  BASE_PATH + '/',
+  BASE_PATH + '/index.html',
+  BASE_PATH + '/manifest.json',
+  BASE_PATH + '/icon-192.png',
+  BASE_PATH + '/icon-512.png'
 ];
 
 // Install - cache static assets
@@ -66,7 +69,7 @@ self.addEventListener('fetch', (event) => {
       }).catch(() => {
         // Offline fallback for navigation requests
         if (event.request.mode === 'navigate') {
-          return caches.match('/index.html');
+          return caches.match(BASE_PATH + '/index.html');
         }
         // For other requests, return a generic offline response
         return new Response('Offline', { status: 503, statusText: 'Service Unavailable' });
